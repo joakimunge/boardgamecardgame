@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class PlayingCard extends StatelessWidget {
   final Function() onDragCompleted;
-  final PlayingCardModel cardModel;
-  const PlayingCard(
+  PlayingCardModel cardModel;
+  PlayingCard(
       {Key? key, required this.onDragCompleted, required this.cardModel})
       : super(key: key);
 
@@ -12,8 +12,8 @@ class PlayingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Draggable(
       data: cardModel,
-      onDragUpdate: (details) {
-        print(details);
+      onDragEnd: (details) {
+        cardModel.position = details.offset;
       },
       onDragCompleted: () {
         onDragCompleted();

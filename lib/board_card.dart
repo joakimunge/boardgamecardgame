@@ -11,8 +11,8 @@ class BoardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 150,
-      left: 150,
+      top: cardModel.position.dy,
+      left: cardModel.position.dx,
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Container(
